@@ -1,0 +1,6 @@
+[submodule "tools/sandcastle"]
+	path = tools/sandcastle
+	url = https://github.com/mattpocock/sandcastle
+[submodule "skills/mattpocock"]
+	path = skills/mattpocock
+	url = https://github.com/mattpocock/skills.git
