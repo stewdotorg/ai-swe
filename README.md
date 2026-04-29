@@ -1,5 +1,6 @@
-# AI-aided Software Engineering
-**Identifying promising tooling, process and wisdom for working with agentic AI**
+# Research on AI-aided software engineering
+
+Identifying promising tooling, process and wisdom for working with agentic AI
 
 A collection of useful (and potentially useful) resources as my colleagues and I
 build out our software engineering skillset and approach in the age of AI agents.
@@ -74,6 +75,5 @@ want to lock back to the pinned commits stored in this repo, omit `--remote`.
 These external repos evolve independently. Submodules pin them at known-good
 revisions so that AI tools and readers get a consistent snapshot. When there's
 new material worth surfacing, bump the pins deliberately.
-
 
 [pocock-talk]: https://www.youtube.com/watch?v=-QFHIoCo-Ko&list=PLgWBLnrVaSruEA5HL8Yw0MNRfVmiuDhgJ
