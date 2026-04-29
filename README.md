@@ -40,9 +40,6 @@ Vercel sandboxes. It handles git worktrees, branch strategies, and merging so
 you can run agents in parallel — each on its own branch, each in its own
 container — then merge the results.
 
-The submodule at [`tools/sandcastle`](tools/sandcastle) is pinned at a stable
-release and provides the source reference and docs.
-
 ## Setup
 
 ### How to use this repo - git submodules
