@@ -7,3 +7,9 @@
 [submodule "tools/pi-mono"]
 	path = tools/pi-mono
 	url = https://github.com/badlogic/pi-mono.git
+[submodule "tools/beads"]
+	path = tools/beads
+	url = https://github.com/gastownhall/beads
+[submodule "tools/gastown"]
+	path = tools/gastown
+	url = https://github.com/gastownhall/gastown.git
