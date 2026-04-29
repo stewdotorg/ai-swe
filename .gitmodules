@@ -4,3 +4,6 @@
 [submodule "skills/mattpocock"]
 	path = skills/mattpocock
 	url = https://github.com/mattpocock/skills.git
+[submodule "tools/pi-mono"]
+	path = tools/pi-mono
+	url = https://github.com/badlogic/pi-mono.git
