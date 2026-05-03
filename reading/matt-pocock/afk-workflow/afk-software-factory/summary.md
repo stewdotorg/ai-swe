@@ -1,7 +1,7 @@
-# Summary: "I Open-Sourced My Own AFK Software Factory" — Matt Pocock
+# Summary of "I Open-Sourced My Own AFK Software Factory" by Matt Pocock
 
-**Source:** [YouTube video](https://www.youtube.com/watch?v=E5-QK3CDVQM) (auto-generated captions, cleaned)
-**Product:** [Sandcastle](https://github.com/mattpocock/sandcastle) — `@ai-hero/sandcastle`
+- **Source:** [YouTube video](https://www.youtube.com/watch?v=E5-QK3CDVQM) (auto-generated captions, cleaned)
+- **Product:** [Sandcastle](https://github.com/mattpocock/sandcastle) — `@ai-hero/sandcastle`
 
 ---
 
