@@ -1,0 +1,116 @@
+# Summary: "I Open-Sourced My Own AFK Software Factory" — Matt Pocock
+
+**Source:** [YouTube video](https://www.youtube.com/watch?v=E5-QK3CDVQM) (auto-generated captions, cleaned)
+**Product:** [Sandcastle](https://github.com/mattpocock/sandcastle) — `@ai-hero/sandcastle`
+
+---
+
+## The Problem
+
+Matt spent 6 months trying to get AI coding agents to run **totally AFK** (away from keyboard). His agents were picking up backlog tasks, implementing features, doing QA, and running in parallel — but the blocker was **permission requests**.
+
+You can't just use "YOLO mode" (bypass all permissions) because:
+
+- Claude might delete your home directory
+- In enterprise setups, it could exfiltrate data or send code to third parties
+
+The solution is **sandboxing**, but existing options (especially Docker sandboxes) had too many problems running AFK. Every tool he found was trying to sell a third-party service. He wanted a simple TypeScript function.
+
+## What Sandcastle Is
+
+A **TypeScript library** (`@ai-hero/sandcastle`) for orchestrating AI coding agents in isolated sandboxes.
+
+**Core primitive:** `sandcastle.run({ agent, sandbox, prompt })`
+
+Key design principles:
+
+- **Provider-agnostic agents** — Claude Code, Codex, pi, OpenCode (swappable via import)
+- **Provider-agnostic sandboxes** — Docker, Podman, Vercel (Firecracker microVMs), or custom
+- **No opinions on workflow** — it's "just code," programmatic and composable
+- **100% local** — commits land on branches you control; no cloud dependency
+
+## Architecture
+
+### Branch Strategies
+
+Three ways to control where agent changes land:
+
+- **Head** — Agent writes directly to the host working directory (default for bind-mount)
+- **Merge-to-head** — Temp branch in a git worktree, auto-merged to HEAD on completion
+- **Branch** — Explicitly named branch in a git worktree
+
+### Sandbox Providers
+
+- **Bind-mount** (Docker, Podman) — Host directory mounted into container; no file sync needed
+- **Isolated** (Vercel, custom) — Separate filesystem; provider handles sync via `copyIn`/`copyFileOut`
+- **No-sandbox** — Agent runs on host (interactive mode only, not AFK)
+
+### Prompts
+
+Two modes:
+
+- **Inline prompt** (`prompt: "..."`) — literal string, no substitution
+- **Prompt file** (`promptFile: "..."`) — markdown with two expansion mechanisms:
+  - `{{KEY}}` substitution via `promptArgs` (plus built-in `{{SOURCE_BRANCH}}` and `{{TARGET_BRANCH}}`)
+  - `` !`command` `` shell expression expansion (runs commands inside the sandbox, stdout replaces the block)
+
+Completion signal: `<promise>COMPLETE</promise>` (configurable) — agent emits it to stop the iteration loop early.
+
+### Backlog Manager
+
+AFK agents need a way to discover work. Sandcastle ships with two:
+
+- **GitHub Issues** — filters by a configurable `sandcastle` label
+- **Beads** — local file-based task tracking
+
+### Templates (`npx sandcastle init`)
+
+Five scaffolded workflows:
+
+1. **blank** — bare scaffold, write your own
+2. **simple-loop** — picks GitHub issues one by one, closes them
+3. **sequential-reviewer** — implement + review per issue
+4. **parallel-planner** — plan sub-issues, execute on separate branches, merge
+5. **parallel-planner-with-review** — same but with per-branch review before merge
+
+## The Demo Workflow (Parallel Planner With Review)
+
+The template Matt demonstrated follows this pattern:
+
+1. **Planner agent** — reads all open issues labeled `sandcastle`, identifies unblocked ones, outputs a JSON plan of sub-issues
+2. **Implement agents** — for each sub-issue, spawns a separate sandbox on its own branch. Uses red-green-refactor TDD (write failing test → make it pass → refactor)
+3. **Reviewer agents** — for each implementation with commits, runs a review agent that:
+   - Understands the change
+   - Analyzes for improvements
+   - Checks correctness
+   - Maintains balance against project standards (configurable via `coding standards` in the prompt)
+4. **Merger agent** — takes all branches, understands the changes, resolves merge conflicts, merges back to main. Uses a powerful agent for conflict resolution since "they can sometimes be pretty gnarly."
+
+The result: multiple agents running in parallel on separate branches, with adversarial review, and a senior "merger developer" pulling everything back to main. All AFK.
+
+## Key Details
+
+- **`sandcastle init`** scaffolds `.sandcastle/` directory with Dockerfile, prompt.md, `.env.example`, `.gitignore`
+- **Dockerfile** is customizable — install system deps, GitHub CLI, the agent binary, whatever your project needs
+- **`.env`** requires `ANTHROPIC_API_KEY` (or equivalent for other agents) + `GITHUB_TOKEN` (for GitHub Issues backlog)
+- **Session capture** — Claude Code session JSONL is automatically captured to host for `claude --resume`
+- **Session resume** — pass `resumeSession` to continue a prior conversation inside a new sandbox
+- **Lifecycle hooks** — `host.onWorktreeReady`, `host.onSandboxReady`, `sandbox.onSandboxReady` for setup commands
+- **Logging** — file-based (default, writes to `.sandcastle/logs/`) or terminal mode (spinners, styled output)
+- **`createSandbox()`** — reusable sandbox for multi-run workflows (implement → review in same container)
+- **`createWorktree()`** — independent git worktree lifecycle, useful for interactive-first-then-AFK patterns
+- **Idle timeout** — 10 minutes (configurable), resets on each agent output event
+- **Max iterations** — configurable; agent loops until completion signal or max reached
+
+## Related Projects Referenced
+
+- **Skills repo** (`mattpocock/skills`) — agent skills for real engineering (viral). Sandcastle's `` !`command` `` syntax was copied from Claude skills. Skills include: grill-me, grill-with-docs, to-prd, to-issues, tdd, diagnose, improve-codebase-architecture, zoom-out, triage, caveman, write-a-skill. Installable via `npx skills@latest add mattpocock/skills`.
+- **Newsletter** — "AI skills for real engineers" at aihero.dev
+
+## Why It Matters
+
+- **Velocity** — Matt says this setup "massively increased my velocity"
+- **Composability** — Because it's just TypeScript code, you can build "really, really complex systems": adversarial multi-agent review, agents that spawn competing implementations, reviewers that choose the best or blend them
+- **Safety** — Sandboxed AFK execution means no permission prompts, no risk of system damage or data exfiltration
+- **Ownership** — No third-party service dependency; everything runs on your machine or your infrastructure
+- **Programmatic control** — Not a GUI, not a SaaS dashboard. A library you compose into scripts, CI pipelines, or custom tooling
