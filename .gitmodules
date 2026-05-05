@@ -13,3 +13,6 @@
 [submodule "tools/gastown"]
 	path = tools/gastown
 	url = https://github.com/gastownhall/gastown.git
+[submodule "skills/superpowers"]
+	path = skills/superpowers
+	url = https://github.com/obra/superpowers.git
