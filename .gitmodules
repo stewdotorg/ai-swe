@@ -16,3 +16,6 @@
 [submodule "skills/superpowers"]
 	path = skills/superpowers
 	url = https://github.com/obra/superpowers.git
+[submodule "tools/serena"]
+	path = tools/serena
+	url = https://github.com/oraios/serena
