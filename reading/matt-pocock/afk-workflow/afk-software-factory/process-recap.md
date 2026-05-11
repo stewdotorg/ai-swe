@@ -7,6 +7,7 @@ Based on Matt Pocock's walkthrough of his open-sourced AFK workflow using [Sandc
 ## The Core Problem Being Solved
 
 Running Claude Code AFK (away from keyboard) requires two things:
+
 1. **No permission interruptions** — agents must run without prompting you
 2. **Safety** — YOLO mode bypasses prompts but lets the agent do destructive things (e.g., delete your home directory, exfiltrate code)
 
@@ -102,6 +103,7 @@ Matt explicitly "maxes out" here. The parallel-with-review template is the most 
 **What:** The Dockerfile defines what's inside the sandbox where agents will run.
 
 The scaffolded default installs:
+
 - System dependencies (git, curl, etc.)
 - GitHub CLI (`gh`) — so agents can read/write issues
 - Claude Code — the agent binary
