@@ -19,3 +19,6 @@
 [submodule "tools/serena"]
 	path = tools/serena
 	url = https://github.com/oraios/serena
+[submodule "tools/context-mode"]
+	path = tools/context-mode
+	url = https://github.com/mksglu/context-mode.git
