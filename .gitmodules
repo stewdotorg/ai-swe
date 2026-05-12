@@ -22,3 +22,36 @@
 [submodule "tools/context-mode"]
 	path = tools/context-mode
 	url = https://github.com/mksglu/context-mode.git
+[submodule "tools/yakety"]
+	path = tools/yakety
+	url = https://github.com/badlogic/yakety
+[submodule "skills/badlogic"]
+	path = skills/badlogic
+	url = https://github.com/badlogic/pi-skills
+[submodule "tools/oh-my-pi"]
+	path = tools/pi/oh-my-pi
+	url = https://github.com/can1357/oh-my-pi.git
+[submodule "tools/trafilatura"]
+	path = tools/trafilatura
+	url = https://github.com/adbar/trafilatura
+[submodule "tools/percollate"]
+	path = tools/percollate
+	url = http://github.com/danburzo/percollate
+[submodule "tools/pi-subagents"]
+	path = tools/pi/pi-subagents
+	url = https://github.com/nicobailon/pi-subagents
+[submodule "skills/AgentiveStack"]
+	path = skills/AgentiveStack
+	url = https://github.com/AgentiveStack/skills
+[submodule "tools/litellm"]
+	path = tools/litellm
+	url = https://github.com/BerriAI/litellm
+[submodule "tools/moonshine"]
+	path = tools/moonshine
+	url = https://github.com/moonshine-ai/moonshine
+[submodule "tools/pi.nvim"]
+	path = tools/pi/pi.nvim
+	url = https://github.com/pablopunk/pi.nvim
+[submodule "tools/pi/pi"]
+	path = tools/pi/pi
+	url = https://github.com/earendil-works/pi.git
