@@ -55,3 +55,6 @@
 [submodule "tools/pi/pi"]
 	path = tools/pi/pi
 	url = https://github.com/earendil-works/pi.git
+[submodule "tools/rumdl"]
+	path = tools/rumdl
+	url = https://github.com/rvben/rumdl.git
