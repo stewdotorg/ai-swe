@@ -62,11 +62,23 @@ git submodule update --init --recursive
 **Updating all submodules to latest:**
 
 ```bash
+# Fetch + checkout the latest commit on each submodule's tracked branch
 git submodule update --remote --recursive
+
+# Stage the new SHAs and commit them in this repo
+git add .
+git commit -m "submodules: bump to latest"
+git push
 ```
 
-This fetches the latest commits from each submodule's tracked branch. If you
-want to lock back to the pinned commits stored in this repo, omit `--remote`.
+Each submodule tracks its default branch (`main` for most, `master` for trafilatura),
+configured in `.gitmodules`. The commands above fast-forward every submodule to
+the tip of that branch, then record the new pins so other clones get the same
+snapshot.
+
+If you ever need to revert submodules to the pinned commits recorded in this
+repo (without pulling new changes), run `git submodule update --recursive`
+(omit `--remote`).
 
 **Why submodules?**
 These external repos evolve independently. Submodules pin them at known-good
