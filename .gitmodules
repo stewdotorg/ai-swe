@@ -58,3 +58,6 @@
 [submodule "tools/rumdl"]
 	path = tools/rumdl
 	url = https://github.com/rvben/rumdl.git
+[submodule "tools/pi/pi-config"]
+	path = tools/pi/pi-config
+	url = https://github.com/amosblomqvist/pi-config
