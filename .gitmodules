@@ -55,6 +55,15 @@
 [submodule "tools/pi/pi"]
 	path = tools/pi/pi
 	url = https://github.com/earendil-works/pi.git
+[submodule "tools/pi/pi-auto-theme"]
+	path = tools/pi/pi-auto-theme
+	url = https://git.sr.ht/~whynothugo/pi-auto-theme
+[submodule "tools/pi/configs/HazAT"]
+	path = tools/pi/configs/HazAT
+	url = https://github.com/HazAT/pi-config
+[submodule "tools/pi/configs/amosblomqvist"]
+	path = tools/pi/configs/amosblomqvist
+	url = git@github.com:amosblomqvist/pi-config.git
 [submodule "tools/rumdl"]
 	path = tools/rumdl
 	url = https://github.com/rvben/rumdl.git
