@@ -94,3 +94,6 @@
 	path = tools/pi/pi-config
 	url = https://github.com/amosblomqvist/pi-config
 	branch = main
+[submodule "tools/flue"]
+	path = tools/flue
+	url = https://github.com/badlogic/flue
