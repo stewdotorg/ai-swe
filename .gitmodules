@@ -100,3 +100,6 @@
 [submodule "tools/rippr"]
 	path = tools/rippr
 	url = https://github.com/mrslbt/rippr
+[submodule "tools/odysseus"]
+	path = tools/odysseus
+	url = https://github.com/pewdiepie-archdaemon/odysseus
