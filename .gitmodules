@@ -97,3 +97,6 @@
 [submodule "tools/flue"]
 	path = tools/flue
 	url = https://github.com/badlogic/flue
+[submodule "tools/rippr"]
+	path = tools/rippr
+	url = https://github.com/mrslbt/rippr
