@@ -106,3 +106,6 @@
 [submodule "tools/files.md"]
 	path = tools/files.md
 	url = https://github.com/zakirullin/files.md
+[submodule "tools/slackfmt"]
+	path = tools/slackfmt
+	url = https://github.com/cauethenorio/slackfmt
