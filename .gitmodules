@@ -103,3 +103,6 @@
 [submodule "tools/odysseus"]
 	path = tools/odysseus
 	url = https://github.com/pewdiepie-archdaemon/odysseus
+[submodule "tools/files.md"]
+	path = tools/files.md
+	url = https://github.com/zakirullin/files.md
