@@ -1,44 +1,8 @@
-# Research on AI-aided software engineering
+# Tools, skills and research relevant to doing software engineering with AI
 
-Identifying promising tooling, process and wisdom for working with agentic AI
+An informal collection of promising, potentially useful agent skills, tools and information resources as I re-orient my software engineering process in the age of AI agents.
 
-A collection of useful (and potentially useful) resources as my colleagues and I
-build out our software engineering skillset and approach in the age of AI agents.
-
-## Recomendations
-
-### Matt Pocock's impressive agentic software engineering workflow, with tooling
-
-#### The Process
-
-Matt Pocock's talk ["Essential Skills for AI Coding from Planning to Production"][pocock-talk]
-is a 2-hour deep-dive into his methodology for shipping production features
-with autonomous AI agents. An excellent, detailed AI-generated summary lives in
-[`reading/matt-pocock-ai-coding-workflow-summary.md`](reading/matt-pocock-ai-coding-workflow-summary.md).
-
-It is the most impressive, fully-fleshed-out agentic workflow recipe I have
-seen to date. It is fully open and easy to implement with his [`sandcastle`](tools/sandcastle)
-tool and a couple of his key [skills](skills/mattpocock/README.md), such as
-the famous [`grill-me`](skills/mattpocock/grill-me).
-
-This workflow enables AFK agent development, in parallel where possible, while
-retaining full human stewardship of and responsibility for software and
-product design decisions.
-
-#### The Skills
-
-The repo includes Pocock's [agent skills](skills/mattpocock/README.md) as a
-submodule — ready to be dropped into any coding agent that supports them.
-
-#### The Tooling
-
-##### Sandcastle
-
-[Sandcastle](tools/sandcastle/README.md) is a TypeScript library for
-orchestrating AI coding agents inside isolated Docker, Podman, or
-Vercel sandboxes. It handles git worktrees, branch strategies, and merging so
-you can run agents in parallel — each on its own branch, each in its own
-container — then merge the results.
+The motivation is to extend my (and my agents') awareness of what people are experimenting with and building for this new era, while keeping a prinicpled commitment to hard-won lessons from the engineers who built the world we now inhabit, many of the lessons, best practices, perspectives and strategies still hold important value, especially when confronting the problem of how to build _quality_, _maintainable_, _evolvable_ software. I am especially attracted to experiments, projects, writings and videos that in one way or another align with this perspective.
 
 ## Setup
 
