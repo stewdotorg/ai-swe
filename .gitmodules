@@ -109,3 +109,6 @@
 [submodule "tools/slackfmt"]
 	path = tools/slackfmt
 	url = https://github.com/cauethenorio/slackfmt
+[submodule "tools/ponytail"]
+	path = tools/ponytail
+	url = https://github.com/DietrichGebert/ponytail
