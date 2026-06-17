@@ -1,4 +1,4 @@
-# Tools, skills and research relevant to doing software engineering with AI
+# Tools, skills and research re: AI-assisted software engineering
 
 An informal collection of promising, potentially useful agent skills, tools and information resources as I re-orient my software engineering process in the age of AI agents.
 
