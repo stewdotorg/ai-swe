@@ -1,4 +1,4 @@
-# Tools, skills and research re: AI-assisted software engineering
+# AI-SWE: a gallery of tools, agent skills and resources
 
 An informal collection of promising, potentially useful agent skills, tools and information resources as I re-orient my software engineering process in the age of AI agents.
 
