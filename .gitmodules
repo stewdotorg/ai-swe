@@ -112,3 +112,6 @@
 [submodule "tools/ponytail"]
 	path = tools/ponytail
 	url = https://github.com/DietrichGebert/ponytail
+[submodule "skills/security-audit-skill"]
+	path = skills/security-audit-skill
+	url = https://github.com/cloudflare/security-audit-skill.git
